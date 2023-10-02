@@ -1,0 +1,3 @@
+(function() {var implementors = {
+"switch_selection":[["impl <a class=\"trait\" href=\"https://doc.rust-lang.org/1.72.0/core/cmp/trait.PartialEq.html\" title=\"trait core::cmp::PartialEq\">PartialEq</a>&lt;<a class=\"struct\" href=\"switch_selection/solver/tree_decomposition_solver/struct.TapsMemoEntry.html\" title=\"struct switch_selection::solver::tree_decomposition_solver::TapsMemoEntry\">TapsMemoEntry</a>&gt; for <a class=\"struct\" href=\"switch_selection/solver/tree_decomposition_solver/struct.TapsMemoEntry.html\" title=\"struct switch_selection::solver::tree_decomposition_solver::TapsMemoEntry\">TapsMemoEntry</a>"]]
+};if (window.register_implementors) {window.register_implementors(implementors);} else {window.pending_implementors = implementors;}})()

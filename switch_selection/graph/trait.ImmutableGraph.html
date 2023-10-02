@@ -1,0 +1,312 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><meta name="generator" content="rustdoc"><meta name="description" content="Functions that cannot mutate a graph"><title>ImmutableGraph in switch_selection::graph - Rust</title><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Regular-46f98efaafac5295.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Regular-018c141bf0843ffd.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/FiraSans-Medium-8f9a781e4970d388.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Regular-562dcc5011b6de7d.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceSerif4-Bold-a2c9cd1067f8b328.ttf.woff2"><link rel="preload" as="font" type="font/woff2" crossorigin href="../../static.files/SourceCodePro-Semibold-d899c5a5c4aeb14a.ttf.woff2"><link rel="stylesheet" href="../../static.files/normalize-76eba96aa4d2e634.css"><link rel="stylesheet" href="../../static.files/rustdoc-9bb858ba049f1f21.css" id="mainThemeStyle"><meta name="rustdoc-vars" data-root-path="../../" data-static-root-path="../../static.files/" data-current-crate="switch_selection" data-themes="" data-resource-suffix="" data-rustdoc-version="1.72.0 (5680fa18f 2023-08-23)" data-channel="1.72.0" data-search-js="search-f6292fe389d70017.js" data-settings-js="settings-de11bff964e9d4e5.js" data-settings-css="settings-8c76f75bfb6bd192.css" data-theme-light-css="light-0f8c037637f9eb3e.css" data-theme-dark-css="dark-1097f8e92a01e3cf.css" data-theme-ayu-css="ayu-614652228113ac93.css" ><script src="../../static.files/storage-59fd9b8ccb335783.js"></script><script defer src="sidebar-items.js"></script><script defer src="../../static.files/main-0795b7d26be81095.js"></script><noscript><link rel="stylesheet" media="(prefers-color-scheme:light)" href="../../static.files/light-0f8c037637f9eb3e.css"><link rel="stylesheet" media="(prefers-color-scheme:dark)" href="../../static.files/dark-1097f8e92a01e3cf.css"><link rel="stylesheet" href="../../static.files/noscript-13285aec31fa243e.css"></noscript><link rel="alternate icon" type="image/png" href="../../static.files/favicon-16x16-8b506e7a72182f1c.png"><link rel="alternate icon" type="image/png" href="../../static.files/favicon-32x32-422f7d1d52889060.png"><link rel="icon" type="image/svg+xml" href="../../static.files/favicon-2c020d218678b618.svg"></head><body class="rustdoc trait"><!--[if lte IE 11]><div class="warning">This old browser is unsupported and will most likely display funky things.</div><![endif]--><nav class="mobile-topbar"><button class="sidebar-menu-toggle">&#9776;</button><a class="logo-container" href="../../switch_selection/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><h2></h2></nav><nav class="sidebar"><a class="logo-container" href="../../switch_selection/index.html"><img class="rust-logo" src="../../static.files/rust-logo-151179464ae7ed46.svg" alt="logo"></a><h2 class="location"><a href="#">ImmutableGraph</a></h2><div class="sidebar-elems"><section><h3><a href="#required-methods">Required Methods</a></h3><ul class="block"><li><a href="#tymethod.check_edge">check_edge</a></li><li><a href="#tymethod.connected_components_count">connected_components_count</a></li><li><a href="#tymethod.degree">degree</a></li><li><a href="#tymethod.degree_in">degree_in</a></li><li><a href="#tymethod.degree_out">degree_out</a></li><li><a href="#tymethod.edge_count">edge_count</a></li><li><a href="#tymethod.get_edge">get_edge</a></li><li><a href="#tymethod.get_edge_cond">get_edge_cond</a></li><li><a href="#tymethod.get_vertex">get_vertex</a></li><li><a href="#tymethod.get_vertex_children">get_vertex_children</a></li><li><a href="#tymethod.get_vertex_cond">get_vertex_cond</a></li><li><a href="#tymethod.get_vertex_neighbourhood">get_vertex_neighbourhood</a></li><li><a href="#tymethod.iter_edge">iter_edge</a></li><li><a href="#tymethod.iter_vertex">iter_vertex</a></li><li><a href="#tymethod.vertex_count">vertex_count</a></li></ul><h3><a href="#implementors">Implementors</a></h3></section><h2><a href="index.html">In switch_selection::graph</a></h2></div></nav><main><div class="width-limiter"><nav class="sub"><form class="search-form"><span></span><input class="search-input" name="search" aria-label="Run search in the documentation" autocomplete="off" spellcheck="false" placeholder="Click or press ‘S’ to search, ‘?’ for more options…" type="search"><div id="help-button" title="help" tabindex="-1"><a href="../../help.html">?</a></div><div id="settings-menu" tabindex="-1"><a href="../../settings.html" title="settings"><img width="22" height="22" alt="Change settings" src="../../static.files/wheel-7b819b6101059cd0.svg"></a></div></form></nav><section id="main-content" class="content"><div class="main-heading"><h1>Trait <a href="../index.html">switch_selection</a>::<wbr><a href="index.html">graph</a>::<wbr><a class="trait" href="#">ImmutableGraph</a><button id="copy-path" title="Copy item path to clipboard"><img src="../../static.files/clipboard-7571035ce49a181d.svg" width="19" height="18" alt="Copy item path"></button></h1><span class="out-of-band"><a class="srclink" href="../../src/switch_selection/graph/mod.rs.html#228-494">source</a> · <button id="toggle-all-docs" title="collapse all docs">[<span>&#x2212;</span>]</button></span></div><pre class="rust item-decl"><code>pub trait ImmutableGraph {
+<details class="toggle type-contents-toggle"><summary class="hideme"><span>Show 15 methods</span></summary>    // Required methods
+    fn <a href="#tymethod.check_edge" class="fn">check_edge</a>(&amp;self, id1: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, id2: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.i8.html">i8</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.connected_components_count" class="fn">connected_components_count</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.degree" class="fn">degree</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.degree_in" class="fn">degree_in</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.degree_out" class="fn">degree_out</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.edge_count" class="fn">edge_count</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_edge" class="fn">get_edge</a>(&amp;self, id1: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, id2: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="struct.Edge.html" title="struct switch_selection::graph::Edge">Edge</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_edge_cond" class="fn">get_edge_cond</a>&lt;T: <a class="trait" href="https://doc.rust-lang.org/1.72.0/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.bool.html">bool</a>&gt;(
+        &amp;self,
+        filter: T
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, &amp;<a class="struct" href="struct.Edge.html" title="struct switch_selection::graph::Edge">Edge</a>)&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_vertex" class="fn">get_vertex</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="struct.Vertex.html" title="struct switch_selection::graph::Vertex">Vertex</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_vertex_children" class="fn">get_vertex_children</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>&gt;&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_vertex_cond" class="fn">get_vertex_cond</a>&lt;T: <a class="trait" href="https://doc.rust-lang.org/1.72.0/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.bool.html">bool</a>&gt;(
+        &amp;self,
+        filter: T
+    ) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, &amp;<a class="struct" href="struct.Vertex.html" title="struct switch_selection::graph::Vertex">Vertex</a>)&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.get_vertex_neighbourhood" class="fn">get_vertex_neighbourhood</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>&gt;&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.iter_edge" class="fn">iter_edge</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/map/struct.Iter.html" title="struct std::collections::hash::map::Iter">Iter</a>&lt;'_, (<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>), <a class="struct" href="struct.Edge.html" title="struct switch_selection::graph::Edge">Edge</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.iter_vertex" class="fn">iter_vertex</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/map/struct.Iter.html" title="struct std::collections::hash::map::Iter">Iter</a>&lt;'_, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="struct" href="struct.Vertex.html" title="struct switch_selection::graph::Vertex">Vertex</a>&gt;;
+<span class="item-spacer"></span>    fn <a href="#tymethod.vertex_count" class="fn">vertex_count</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>;
+</details>}</code></pre><details class="toggle top-doc" open><summary class="hideme"><span>Expand description</span></summary><div class="docblock"><h2 id="functions-that-cannot-mutate-a-graph"><a href="#functions-that-cannot-mutate-a-graph">Functions that cannot mutate a graph</a></h2><h3 id="brief"><a href="#brief">Brief</a></h3>
+<p>This trait contains functions for graphs and graph containers that <em>don’t</em>
+affect their contents. All functions in this trait borrow an <em>immutable</em>
+reference to a graph they are applied to, so you can’t borrow any mutable
+references to it at the same time. However, you can borrow as many more
+immutable references to it as you need.</p>
+<h3 id="panic-policy"><a href="#panic-policy">Panic policy</a></h3>
+<p>Functions in this trait never panic.</p>
+</div></details><h2 id="required-methods" class="small-section-header">Required Methods<a href="#required-methods" class="anchor">§</a></h2><div class="methods"><details class="toggle method-toggle" open><summary><section id="tymethod.check_edge" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#247">source</a><h4 class="code-header">fn <a href="#tymethod.check_edge" class="fn">check_edge</a>(&amp;self, id1: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, id2: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.i8.html">i8</a>&gt;</h4></section></summary><div class="docblock"><h5 id="check-the-existence-of-an-edge"><a href="#check-the-existence-of-an-edge">Check the existence of an edge</a></h5><h6 id="brief-1"><a href="#brief-1">Brief</a></h6>
+<p>Checks if there exists any edge between two vertices.</p>
+<h6 id="arguments"><a href="#arguments">Arguments</a></h6>
+<ul>
+<li><code>id1</code> : <code>VertexId</code> - the ID of the first vertex.</li>
+<li><code>id2</code> : <code>VertexId</code> - the ID of the second vertex.</li>
+</ul>
+<h6 id="returns"><a href="#returns">Returns</a></h6>
+<ul>
+<li><code>Option&lt;i8&gt;</code> - <code>i8</code> is returned to indicate how <code>id1</code> and <code>id2</code> are
+connected as stated in the table below, <code>None</code> is returned if at least
+one of the vertices doesn’t exist.</li>
+</ul>
+<div><table><thead><tr><th>Return value</th><th>Meaning</th></tr></thead><tbody>
+<tr><td>-2</td><td>There’re directed edges going both ways</td></tr>
+<tr><td>-1</td><td>There’s a directed edge from <code>id2</code> to <code>id1</code></td></tr>
+<tr><td>0</td><td>There’s no edge between <code>id1</code> and <code>id2</code></td></tr>
+<tr><td>1</td><td>There’s a directed edge from <code>id1</code> to <code>id2</code></td></tr>
+<tr><td>2</td><td>There’s an undirected edge between <code>id1</code> and <code>id2</code></td></tr>
+</tbody></table>
+</div></div></details><details class="toggle method-toggle" open><summary><section id="tymethod.connected_components_count" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#257">source</a><h4 class="code-header">fn <a href="#tymethod.connected_components_count" class="fn">connected_components_count</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a></h4></section></summary><div class="docblock"><h5 id="get-the-number-of-connected-components"><a href="#get-the-number-of-connected-components">Get the number of connected components</a></h5><h6 id="brief-2"><a href="#brief-2">Brief</a></h6>
+<p>Counts the number of connected components in the graph.</p>
+<h6 id="arguments-1"><a href="#arguments-1">Arguments</a></h6>
+<p>None.</p>
+<h6 id="returns-1"><a href="#returns-1">Returns</a></h6>
+<ul>
+<li><code>usize</code> - the number of connected components.</li>
+</ul>
+<h6 id="note"><a href="#note">Note</a></h6>
+<p>The function won’t work properly for graphs with directed edges.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.degree" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#271">source</a><h4 class="code-header">fn <a href="#tymethod.degree" class="fn">degree</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>&gt;</h4></section></summary><div class="docblock"><h5 id="get-vertex-degree"><a href="#get-vertex-degree">Get vertex degree</a></h5><h6 id="brief-3"><a href="#brief-3">Brief</a></h6>
+<p>Computes the number of vertices adjacent to a given vertex.</p>
+<h6 id="arguments-2"><a href="#arguments-2">Arguments</a></h6>
+<ul>
+<li><code>id</code> : <code>VertexID</code> - the ID of the vertex of interest.</li>
+</ul>
+<h6 id="returns-2"><a href="#returns-2">Returns</a></h6>
+<ul>
+<li><code>Option&lt;usize&gt;</code> - the number of vertices adjacent to the given
+vertex, or <code>None</code> if the vertex with the given ID doesn’t exist.</li>
+</ul>
+<h6 id="note-1"><a href="#note-1">Note</a></h6>
+<p>Vertices <em>u</em> and <em>v</em> are adjacent if there’s <em>any</em> kind of edge between
+them. So, in a simple graph with two vertices <em>u</em> and <em>v</em> and a
+directed edge going from <em>u</em> to <em>v</em>, the degree of both <em>u</em> and <em>v</em>
+will be 1.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.degree_in" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#286">source</a><h4 class="code-header">fn <a href="#tymethod.degree_in" class="fn">degree_in</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>&gt;</h4></section></summary><div class="docblock"><h5 id="get-vertex-in-degree"><a href="#get-vertex-in-degree">Get vertex in-degree</a></h5><h6 id="brief-4"><a href="#brief-4">Brief</a></h6>
+<p>Computes the number of vertices adjacent to a given vertex that are
+connected to it by…</p>
+<ul>
+<li>… an undirected edge.</li>
+<li>… a directed edge the endpoint of which is the given vertex.</li>
+</ul>
+<h6 id="arguments-3"><a href="#arguments-3">Arguments</a></h6>
+<ul>
+<li><code>id</code> : <code>VertexID</code> - the ID of the vertex of interest.</li>
+</ul>
+<h6 id="returns-3"><a href="#returns-3">Returns</a></h6>
+<ul>
+<li><code>Option&lt;usize&gt;</code> - the in-degree of the given vertex, or <code>None</code> if the
+vertex with the given ID doesn’t exist.</li>
+</ul>
+<h6 id="note-2"><a href="#note-2">Note</a></h6>
+<p>Generally speaking, <code>graph.degree(v) == graph.degree_in(v) + graph.degree_out(v)</code>.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.degree_out" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#301">source</a><h4 class="code-header">fn <a href="#tymethod.degree_out" class="fn">degree_out</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a>&gt;</h4></section></summary><div class="docblock"><h5 id="get-vertex-out-degree"><a href="#get-vertex-out-degree">Get vertex out-degree</a></h5><h6 id="brief-5"><a href="#brief-5">Brief</a></h6>
+<p>Computes the number of vertices adjacent to a given vertex that are
+connected to it by…</p>
+<ul>
+<li>… an undirected edge.</li>
+<li>… a directed edge the startpoint of which is the given vertex.</li>
+</ul>
+<h6 id="arguments-4"><a href="#arguments-4">Arguments</a></h6>
+<ul>
+<li><code>id</code> : <code>VertexID</code> - the ID of the vertex of interest.</li>
+</ul>
+<h6 id="returns-4"><a href="#returns-4">Returns</a></h6>
+<ul>
+<li><code>Option&lt;usize&gt;</code> - the out-degree of the given vertex, or <code>None</code> if the
+vertex with the given ID doesn’t exist.</li>
+</ul>
+<h6 id="note-3"><a href="#note-3">Note</a></h6>
+<p>Generally speaking, <code>graph.degree(v) == graph.degree_in(v) + graph.degree_out(v)</code>.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.edge_count" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#309">source</a><h4 class="code-header">fn <a href="#tymethod.edge_count" class="fn">edge_count</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a></h4></section></summary><div class="docblock"><h5 id="get-the-number-of-edges"><a href="#get-the-number-of-edges">Get the number of edges</a></h5><h6 id="brief-6"><a href="#brief-6">Brief</a></h6>
+<p>Reveals the number of edges in the graph.</p>
+<h6 id="arguments-5"><a href="#arguments-5">Arguments</a></h6>
+<p>None.</p>
+<h6 id="returns-5"><a href="#returns-5">Returns</a></h6>
+<ul>
+<li><code>usize</code> - the number of edges in the graph.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_edge" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#323">source</a><h4 class="code-header">fn <a href="#tymethod.get_edge" class="fn">get_edge</a>(&amp;self, id1: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, id2: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="struct.Edge.html" title="struct switch_selection::graph::Edge">Edge</a>&gt;</h4></section></summary><div class="docblock"><h5 id="access-an-edge"><a href="#access-an-edge">Access an edge</a></h5><h6 id="brief-7"><a href="#brief-7">Brief</a></h6>
+<p>Finds an edge by the IDs of the vertices incident on it and returns an
+<em>immutable</em> reference to it.</p>
+<h6 id="arguments-6"><a href="#arguments-6">Arguments</a></h6>
+<ul>
+<li><code>id1</code> : <code>VertexId</code> - the ID of the first incident vertex.</li>
+<li><code>id2</code> : <code>VertexId</code> - the ID of the second incident vertex.</li>
+</ul>
+<h6 id="returns-6"><a href="#returns-6">Returns</a></h6>
+<ul>
+<li><code>Option&lt;&amp;Edge&gt;</code> - an immutable reference to the found edge, or
+<code>None</code>.</li>
+</ul>
+<h6 id="note-4"><a href="#note-4">Note</a></h6>
+<p>If there’s no undirected edge between <code>id1</code> and <code>id2</code>, <code>Some(&amp;Edge)</code>
+will only be returned if there’s a directed edge from <code>id1</code> to <code>id2</code>.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_edge_cond" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#379">source</a><h4 class="code-header">fn <a href="#tymethod.get_edge_cond" class="fn">get_edge_cond</a>&lt;T: <a class="trait" href="https://doc.rust-lang.org/1.72.0/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.bool.html">bool</a>&gt;(
+    &amp;self,
+    filter: T
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, &amp;<a class="struct" href="struct.Edge.html" title="struct switch_selection::graph::Edge">Edge</a>)&gt;</h4></section></summary><div class="docblock"><h5 id="access-an-edge-satisfying-a-condition"><a href="#access-an-edge-satisfying-a-condition">Access an edge satisfying a condition</a></h5><h6 id="brief-8"><a href="#brief-8">Brief</a></h6>
+<p>Finds an edge that satisfies a given condition and returns an
+<em>immutable</em> reference to it. The condition must be checked by a
+callable object that accepts two <code>VertexId</code>’s and returns <code>bool</code>.</p>
+<h6 id="arguments-7"><a href="#arguments-7">Arguments</a></h6>
+<ul>
+<li><code>filter</code> : <code>T: Fn(VertexId, VertexId) -&gt; bool</code> - the condition that
+has to be satisfied.</li>
+</ul>
+<h6 id="returns-7"><a href="#returns-7">Returns</a></h6>
+<ul>
+<li><code>Option&lt;(VertexId, VertexId, &amp;Edge)&gt;</code> - a tuple containing the IDs of
+two adjacent vertices and an immutable reference to the found edge
+connecting them, or <code>None</code> if all edges of the graph don’t satisfy the
+condition.</li>
+</ul>
+<h6 id="note-5"><a href="#note-5">Note</a></h6>
+<p>Don’t use this function to sample random edges! The return values
+are not random and depend entirely on the internal structure of the
+hash set used to store the edges.</p>
+<h6 id="examples"><a href="#examples">Examples</a></h6><h6 id="example-1-basic-usage"><a href="#example-1-basic-usage">Example 1. Basic usage</a></h6>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span><span class="kw-2">mut </span>g = Graph::new();
+g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 0
+</span>g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 1
+</span>g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 2
+</span>g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 3
+</span>g.add_edge(<span class="number">0</span>, <span class="number">1</span>, <span class="bool-val">false</span>); <span class="comment">// adds edge 0 --- 1
+</span>g.add_edge(<span class="number">3</span>, <span class="number">2</span>, <span class="bool-val">true</span>); <span class="comment">// adds edge 2 &lt;-- 3
+ 
+</span><span class="kw">let </span>x = g.get_edge_cond(|id1, id2| g.degree(id1) == <span class="number">1 </span>&amp;&amp; g.degree(id2) == <span class="number">1</span>).unwrap();
+<span class="macro">assert!</span>((x.<span class="number">0</span>, x.<span class="number">1</span>) == (<span class="number">0</span>, <span class="number">1</span>) || (x.<span class="number">0</span>, x.<span class="number">1</span>) == (<span class="number">3</span>, <span class="number">2</span>));</code></pre></div>
+<h6 id="example-2-incorrect-sampling-of-multiple-edges"><a href="#example-2-incorrect-sampling-of-multiple-edges">Example 2. Incorrect sampling of multiple edges</a></h6>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Let&#39;s say, we continue the previous example and now want to sample 2
+// edges that connect vertices of degree 1.
+// A method one could initially think of is:
+</span><span class="kw">let </span><span class="kw-2">mut </span>found_edges: HashSet&lt;(VertexId, VertexId)&gt; = HashSet::new();
+<span class="kw">for </span>i <span class="kw">in </span><span class="number">0</span>..=<span class="number">1 </span>{
+    <span class="kw">let </span>x = g.get_edge_cond(|id1, id2| g.degree(id1) == <span class="number">1 </span>&amp;&amp; g.degree(id2) == <span class="number">1</span>).unwrap();
+    found_edges.insert((x.<span class="number">0</span>, x.<span class="number">1</span>));
+}
+ 
+<span class="macro">assert!</span>(found_edges.contains((<span class="number">0</span>, <span class="number">1</span>)) &amp;&amp; found_edges.contains((<span class="number">3</span>, <span class="number">2</span>))); <span class="comment">// ASSERTION FAILED</span></code></pre></div>
+<h6 id="example-3-correct-sampling-of-multiple-edges"><a href="#example-3-correct-sampling-of-multiple-edges">Example 3. Correct sampling of multiple edges</a></h6>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Instead of the code above we should write:
+</span><span class="kw">let </span><span class="kw-2">mut </span>found_edges: HashSet&lt;(VertexId, VertexId)&gt; = HashSet::new();
+<span class="kw">for </span>i <span class="kw">in </span><span class="number">0</span>..=<span class="number">1 </span>{
+    <span class="kw">let </span>x = g.get_vertex_cond(|id1, id2| g.degree(id1) == <span class="number">1 </span>&amp;&amp; g.degree(id2) == <span class="number">1 </span>&amp;&amp; !found_edges.contains(id)).unwrap();
+    found_edges.insert((x.<span class="number">0</span>, x.<span class="number">1</span>));
+}
+ 
+<span class="macro">assert!</span>(found_edges.contains((<span class="number">0</span>, <span class="number">1</span>)) &amp;&amp; found_edges.contains((<span class="number">3</span>, <span class="number">2</span>)));</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_vertex" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#388">source</a><h4 class="code-header">fn <a href="#tymethod.get_vertex" class="fn">get_vertex</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;&amp;<a class="struct" href="struct.Vertex.html" title="struct switch_selection::graph::Vertex">Vertex</a>&gt;</h4></section></summary><div class="docblock"><h5 id="access-a-vertex"><a href="#access-a-vertex">Access a vertex</a></h5><h6 id="brief-9"><a href="#brief-9">Brief</a></h6>
+<p>Finds a vertex by its ID and returns an <em>immutable</em> reference to it.</p>
+<h6 id="arguments-8"><a href="#arguments-8">Arguments</a></h6>
+<ul>
+<li><code>id</code> : <code>VertexId</code> - the ID of the vertex of interest.</li>
+</ul>
+<h6 id="returns-8"><a href="#returns-8">Returns</a></h6>
+<ul>
+<li><code>Option&lt;&amp;Vertex&gt;</code> - an immutable reference to the found vertex, or
+<code>None</code>.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_vertex_children" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#400">source</a><h4 class="code-header">fn <a href="#tymethod.get_vertex_children" class="fn">get_vertex_children</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>&gt;&gt;</h4></section></summary><div class="docblock"><h5 id="get-vertex-children"><a href="#get-vertex-children">Get vertex children</a></h5><h6 id="brief-10"><a href="#brief-10">Brief</a></h6>
+<p>Constructs a set of IDs of all vertices adjacent to a given vertex that
+are connected to it by…</p>
+<ul>
+<li>… an undirected edge.</li>
+<li>… a directed edge the startpoint of which is the given vertex.</li>
+</ul>
+<h6 id="arguments-9"><a href="#arguments-9">Arguments</a></h6>
+<ul>
+<li><code>id</code> : <code>VertexId</code> - the ID of the vertex of interest.</li>
+</ul>
+<h6 id="returns-9"><a href="#returns-9">Returns</a></h6>
+<ul>
+<li><code>Option&lt;HashSet&lt;VertexId&gt;&gt;</code> - a set containing IDs of all children of
+the given vertex, or <code>None</code> if the given vertex doesn’t exist.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_vertex_cond" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#453">source</a><h4 class="code-header">fn <a href="#tymethod.get_vertex_cond" class="fn">get_vertex_cond</a>&lt;T: <a class="trait" href="https://doc.rust-lang.org/1.72.0/core/ops/function/trait.Fn.html" title="trait core::ops::function::Fn">Fn</a>(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.bool.html">bool</a>&gt;(
+    &amp;self,
+    filter: T
+) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;(<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, &amp;<a class="struct" href="struct.Vertex.html" title="struct switch_selection::graph::Vertex">Vertex</a>)&gt;</h4></section></summary><div class="docblock"><h5 id="access-a-vertex-satisfying-a-condition"><a href="#access-a-vertex-satisfying-a-condition">Access a vertex satisfying a condition</a></h5><h6 id="brief-11"><a href="#brief-11">Brief</a></h6>
+<p>Finds a vertex that satisfies a given condition and returns an
+<em>immutable</em> reference to it. The condition must be checked by a
+callable object that accepts a <code>VertexId</code> and returns <code>bool</code>.</p>
+<h6 id="arguments-10"><a href="#arguments-10">Arguments</a></h6>
+<ul>
+<li><code>filter</code> : <code>T: Fn(VertexId) -&gt; bool</code> - the condition that has to be
+satisfied.</li>
+</ul>
+<h6 id="returns-10"><a href="#returns-10">Returns</a></h6>
+<ul>
+<li><code>Option&lt;(VertexId, &amp;Vertex)&gt;</code> - a tuple of the vertex ID and an
+immutable reference to it, or <code>None</code> if all vertices of the graph don’t
+satisfy the condition.</li>
+</ul>
+<h6 id="note-6"><a href="#note-6">Note</a></h6>
+<p>Don’t use this function to sample random vertices! The return values
+are not random and depend entirely on the internal structure of the
+hash set used to store the vertices.</p>
+<h6 id="examples-1"><a href="#examples-1">Examples</a></h6><h6 id="example-1-basic-usage-1"><a href="#example-1-basic-usage-1">Example 1. Basic usage</a></h6>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="kw">let </span><span class="kw-2">mut </span>g = Graph::new();
+g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 0
+</span>g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 1
+</span>g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 2
+</span>g.add_vertex(<span class="prelude-val">None</span>); <span class="comment">// adds vertex with ID 3
+</span>g.add_edge(<span class="number">0</span>, <span class="number">1</span>, <span class="bool-val">false</span>); <span class="comment">// adds edge 0 --- 1
+</span>g.add_edge(<span class="number">3</span>, <span class="number">2</span>, <span class="bool-val">true</span>); <span class="comment">// adds edge 2 &lt;-- 3
+ 
+</span><span class="kw">let </span>x = g.get_vertex_cond(|id| id % <span class="number">2 </span>== <span class="number">0 </span>&amp;&amp; g.degree(id) == <span class="number">1</span>).unwrap();
+<span class="macro">assert!</span>(x.<span class="number">0 </span>== <span class="number">0 </span>|| x.<span class="number">0 </span>== <span class="number">2</span>);</code></pre></div>
+<h6 id="example-2-incorrect-sampling-of-multiple-vertices"><a href="#example-2-incorrect-sampling-of-multiple-vertices">Example 2. Incorrect sampling of multiple vertices</a></h6>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Let&#39;s say, we continue the previous example and now want to sample 2
+// vertices that have even IDs and degree 1.
+// A method one could initially think of is:
+</span><span class="kw">let </span><span class="kw-2">mut </span>found_vertices: HashSet&lt;VertexId&gt; = HashSet::new();
+<span class="kw">for </span>i <span class="kw">in </span><span class="number">0</span>..=<span class="number">1 </span>{
+    found_vertices.insert(g.get_vertex_cond(|id| id % <span class="number">2 </span>== <span class="number">0 </span>&amp;&amp; g.degree(id) == <span class="number">1</span>).unwrap().<span class="number">0</span>);
+}
+ 
+<span class="macro">assert!</span>(found_vertices.contains(<span class="number">0</span>) &amp;&amp; found_vertices.contains(<span class="number">2</span>)); <span class="comment">// ASSERTION FAILED</span></code></pre></div>
+<h6 id="example-3-correct-sampling-of-multiple-vertices"><a href="#example-3-correct-sampling-of-multiple-vertices">Example 3. Correct sampling of multiple vertices</a></h6>
+<div class="example-wrap"><pre class="rust rust-example-rendered"><code><span class="comment">// Instead of the code above we should write:
+</span><span class="kw">let </span><span class="kw-2">mut </span>found_vertices: HashSet&lt;VertexId&gt; = HashSet::new();
+<span class="kw">for </span>i <span class="kw">in </span><span class="number">0</span>..=<span class="number">1 </span>{
+    found_vertices.insert(g.get_vertex_cond(|id| id % <span class="number">2 </span>== <span class="number">0 </span>&amp;&amp; g.degree(id) == <span class="number">1 </span>&amp;&amp; !found_vertices.contains(id)).unwrap().<span class="number">0</span>);
+}
+ 
+<span class="macro">assert!</span>(found_vertices.contains(<span class="number">0</span>) &amp;&amp; found_vertices.contains(<span class="number">2</span>));</code></pre></div>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.get_vertex_neighbourhood" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#467">source</a><h4 class="code-header">fn <a href="#tymethod.get_vertex_neighbourhood" class="fn">get_vertex_neighbourhood</a>(&amp;self, id: <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>) -&gt; <a class="enum" href="https://doc.rust-lang.org/1.72.0/core/option/enum.Option.html" title="enum core::option::Option">Option</a>&lt;<a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/set/struct.HashSet.html" title="struct std::collections::hash::set::HashSet">HashSet</a>&lt;<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>&gt;&gt;</h4></section></summary><div class="docblock"><h5 id="get-vertex-neighbourhood"><a href="#get-vertex-neighbourhood">Get vertex neighbourhood</a></h5><h6 id="brief-12"><a href="#brief-12">Brief</a></h6>
+<p>Constructs a set of IDs of all vertices that are adjacent to a given
+vertex.</p>
+<h6 id="arguments-11"><a href="#arguments-11">Arguments</a></h6>
+<ul>
+<li><code>id</code> : <code>VertexId</code> - the ID of the vertex of interest.</li>
+</ul>
+<h6 id="returns-11"><a href="#returns-11">Returns</a></h6>
+<ul>
+<li><code>Option&lt;HashSet&lt;VertexId&gt;&gt;</code> - a set containing IDs of all vertices
+adjacent to the given vertex, or <code>None</code> if the given vertex doesn’t
+exist.</li>
+</ul>
+<h6 id="note-7"><a href="#note-7">Note</a></h6>
+<p>Vertices <em>u</em> and <em>v</em> are adjacent if there’s <em>any</em> kind of edge between
+them.</p>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.iter_edge" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#476">source</a><h4 class="code-header">fn <a href="#tymethod.iter_edge" class="fn">iter_edge</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/map/struct.Iter.html" title="struct std::collections::hash::map::Iter">Iter</a>&lt;'_, (<a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>), <a class="struct" href="struct.Edge.html" title="struct switch_selection::graph::Edge">Edge</a>&gt;</h4></section></summary><div class="docblock"><h5 id="iterate-over-edges"><a href="#iterate-over-edges">Iterate over edges</a></h5><h6 id="brief-13"><a href="#brief-13">Brief</a></h6>
+<p>Iterates over all edges of the graph.</p>
+<h6 id="arguments-12"><a href="#arguments-12">Arguments</a></h6>
+<p>None.</p>
+<h6 id="returns-12"><a href="#returns-12">Returns</a></h6>
+<ul>
+<li><code>hash_map::Iter&lt;'_, (VertexId, VertexId), Edge&gt;</code> - an iterator
+over all edges.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.iter_vertex" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#485">source</a><h4 class="code-header">fn <a href="#tymethod.iter_vertex" class="fn">iter_vertex</a>(&amp;self) -&gt; <a class="struct" href="https://doc.rust-lang.org/1.72.0/std/collections/hash/map/struct.Iter.html" title="struct std::collections::hash::map::Iter">Iter</a>&lt;'_, <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.u64.html">u64</a>, <a class="struct" href="struct.Vertex.html" title="struct switch_selection::graph::Vertex">Vertex</a>&gt;</h4></section></summary><div class="docblock"><h5 id="iterate-over-vertices"><a href="#iterate-over-vertices">Iterate over vertices</a></h5><h6 id="brief-14"><a href="#brief-14">Brief</a></h6>
+<p>Iterates over all vertices of the graph.</p>
+<h6 id="arguments-13"><a href="#arguments-13">Arguments</a></h6>
+<p>None.</p>
+<h6 id="returns-13"><a href="#returns-13">Returns</a></h6>
+<ul>
+<li><code>hash_map::Iter&lt;'_, VertexId, Vertex&gt;</code> - an iterator over all
+vertices.</li>
+</ul>
+</div></details><details class="toggle method-toggle" open><summary><section id="tymethod.vertex_count" class="method"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#493">source</a><h4 class="code-header">fn <a href="#tymethod.vertex_count" class="fn">vertex_count</a>(&amp;self) -&gt; <a class="primitive" href="https://doc.rust-lang.org/1.72.0/std/primitive.usize.html">usize</a></h4></section></summary><div class="docblock"><h5 id="get-the-number-of-vertices"><a href="#get-the-number-of-vertices">Get the number of vertices</a></h5><h6 id="brief-15"><a href="#brief-15">Brief</a></h6>
+<p>Reveals the number of vertices in the graph.</p>
+<h6 id="arguments-14"><a href="#arguments-14">Arguments</a></h6>
+<p>None.</p>
+<h6 id="returns-14"><a href="#returns-14">Returns</a></h6>
+<ul>
+<li><code>usize</code> - the number of vertices in the graph.</li>
+</ul>
+</div></details></div><h2 id="implementors" class="small-section-header">Implementors<a href="#implementors" class="anchor">§</a></h2><div id="implementors-list"><section id="impl-ImmutableGraph-for-Graph" class="impl"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#496-690">source</a><a href="#impl-ImmutableGraph-for-Graph" class="anchor">§</a><h3 class="code-header">impl <a class="trait" href="trait.ImmutableGraph.html" title="trait switch_selection::graph::ImmutableGraph">ImmutableGraph</a> for <a class="struct" href="struct.Graph.html" title="struct switch_selection::graph::Graph">Graph</a></h3></section><section id="impl-ImmutableGraph-for-W" class="impl"><a class="srclink rightside" href="../../src/switch_selection/graph/mod.rs.html#692-753">source</a><a href="#impl-ImmutableGraph-for-W" class="anchor">§</a><h3 class="code-header">impl&lt;W: <a class="trait" href="trait.ImmutableGraphWrapper.html" title="trait switch_selection::graph::ImmutableGraphWrapper">ImmutableGraphWrapper</a>&gt; <a class="trait" href="trait.ImmutableGraph.html" title="trait switch_selection::graph::ImmutableGraph">ImmutableGraph</a> for W</h3></section></div><script src="../../implementors/switch_selection/graph/trait.ImmutableGraph.js" async></script></section></div></main></body></html>

@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"fn":["parse_attribute_value"],"macro":["err_ambiguous_attribute_type","err_argument_count_mismatch","err_duplicating_attribute","err_type_mismatch","err_unexpected_attribute_declaration","err_unexpected_eol","err_unexpected_symbol","err_unknown_attribute_type","err_unknown_specifier"],"trait":["GNBS"]};

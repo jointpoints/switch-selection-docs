@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"macro":["cplex_unwrap"],"struct":["CPLEXSolverCore"],"trait":["CPLEXSolverTools"],"type":["CPLEXSolver"]};

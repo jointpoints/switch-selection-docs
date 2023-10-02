@@ -1,0 +1,1 @@
+window.SIDEBAR_ITEMS = {"mod":["attribute","errors","io","tree_decomposition"],"struct":["Edge","Graph","Vertex"],"trait":["ImmutableGraph","ImmutableGraphWrapper","MutableGraph"],"type":["VertexId"]};
