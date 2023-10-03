@@ -1081,10 +1081,11 @@
 <a href="#1081" id="1081">1081</a>
 <a href="#1082" id="1082">1082</a>
 <a href="#1083" id="1083">1083</a>
+<a href="#1084" id="1084">1084</a>
 </pre></div><pre class="rust"><code><span class="doccomment">/// # Graph attributes
 /// ## Brief
 /// This module implements vertex, edge and graph attributes. Each vertex/edge/graph
-/// attribute has a name storead as a `String` and some value. All
+/// attribute has a name stored as a `String` and some value. All
 /// attribute-value pairs for one vertex/edge/graph are stored in one
 /// [AttributeMap](attribute::AttributeMap) instance. Attribute maps use
 /// dynamic dispatch to store the values, so these values can be of any type
@@ -1207,7 +1208,8 @@
 /// 
 /// // Since Rust is a statically typed language, we must remember the type of
 /// // each attribute we create to be able to access its value
-/// assert_eq!(g.get_vertex(1).unwrap().attributes.get::&lt;Vec::&lt;f32&gt;, _&gt;(&quot;Data&quot;).unwrap(), [3.1415927, -270000.0]);
+/// println!(&quot;{:?}&quot;, g.get_vertex(1).unwrap().attributes.get::&lt;Vec::&lt;f32&gt;, _&gt;(&quot;Data&quot;).unwrap());
+/// // Prints [3.1415927_f32, -270000.0]
 /// ```
 /// #### Example 3. Input/output
 /// ```
